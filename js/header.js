@@ -1,3 +1,11 @@
+// Load Header
+const xhr = new XMLHttpRequest();
+xhr.open("GET", "../header.html", true);
+xhr.send();
+xhr.onreadystatechange=function(){
+    if(xhr.readyState == 4 && xhr.status == 200){
+        document.querySelectorAll("#header")[0].innerHTML = xhr.responseText; }};
+
 // Popup close
 function popClose(e) {
     if (e.classList.contains('pop'))
@@ -17,6 +25,6 @@ function popClose(e) {
     document.body.style.overflow = "scroll"; }
 
 // 多國語popup
-function popLangauges() {
-    document.getElementById("pop__langauges").style.display = "flex";
+function popLanguages() {
+    document.getElementById("pop__languages").style.display = "flex";
     document.body.style.overflow = "hidden"; }

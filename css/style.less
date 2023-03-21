@@ -1,5 +1,4 @@
-/******************************
-CSS Table of Contents
+/* CSS Table of Contents
     1. Import Fonts (Eng+Chin)
     2. Variables
     3. Style Reset
@@ -34,15 +33,19 @@ CSS Table of Contents
     --cRed:   #EB5757;
     --cGreen: #27AE60;
 }
+/* Screen Size */
+@sD:    (min-width: 1024px);                            // Desktop
+@sT:    (max-width: 1023px) and (min-width: 768px);     // Tablet
+@sM:    (max-width: 767px);                             // Mobile
 
 /******************************
 3. Reset */
 *                                       { margin: 0; padding: 0;
     &:visited                           { color: inherit; }}
 html, body                              { overscroll-behavior-x: none; }
-span, p, h1, h2, h3, h4, h5, h6, a,
+span, p, h1, h2, h3, h4, h5, h6, div, a,
 select, input, textarea, button, ol, ul { font-size: var(--fM); font-family: 'Noto Sans TC', 'Roboto', 'Arial', '微軟正黑體'; }
-span, p, h1, h2, h3, h4, h5, h6,
+span, p, h1, h2, h3, h4, h5, h6, div,
 input, textarea, ol, ul                 { color: var(--cG1); }
 a                                       { border-radius: 5px; color: inherit; text-decoration: none !important; }
 a:hover                                 { cursor: pointer; box-shadow: inset 0 0 100px 100px rgba(255, 255, 255, 0.2); }
@@ -51,12 +54,13 @@ button:hover                            { cursor: pointer; box-shadow: inset 0 0
 input                                   { border: 0; padding: 0; background-color: transparent; }
 input:focus                             { box-shadow: none !important; outline: none; }
 input:-webkit-autofill                  { color: var(--c1) !important; background-color: transparent !important; box-shadow: 0 0 0px 1000px white inset !important; background-clip: content-box !important; }
+input::placeholder                      { color: var(--cG4); }
 textarea                                { border: 0; resize: none; }
 textarea:focus                          { box-shadow: none !important; outline: none; }
 select                                  { -webkit-appearance: none; -moz-appearance: none; appearance: none; outline: none; border: 0; }
 select:hover                            { cursor: pointer; }
 img                                     { object-fit: cover; }
-i                                       { text-decoration: none !important; }
+i, svg                                  { text-decoration: none !important; }
 iframe                                  { border: 0; }
 *, :after, :before                      { box-sizing: border-box !important; -webkit-box-sizing: border-box; }
 
@@ -76,6 +80,7 @@ iframe                                  { border: 0; }
 button { width: 100%; height: 60px; border-radius: 20px; display: flex; align-items: center; justify-content: center; gap: 5px; background-color: var(--c1);
     span { color: white !important; }}
 .header { width: 100%; max-width: 1024px; min-height: 60px; padding: 0 20px; gap: 5px; z-index: 5; left: 50%; transform: translate(-50%, 0); position: fixed; display: flex; align-items: center; justify-content: center; background-color: var(--c1);
+    a i, a svg { color: white; }
     .header__left { width: 100%; display: flex; align-items: center; }
     .header__right { width: 100%; display: flex; align-items: center; justify-content: flex-end;
         a { border-radius: 99px; display: flex; }}}
@@ -87,19 +92,52 @@ button { width: 100%; height: 60px; border-radius: 20px; display: flex; align-it
         .pop__close { width: 30px; height: 30px; min-height: 30px; margin: -20px -5px -30px auto; border-radius: 99px; top: -5px; position: sticky; display: flex; align-items: center; justify-content: center; color: var(--cG4); background-color: rgba(255, 255, 255, 0.75); }}}
         @keyframes popup { 0% { margin-bottom: -100vh; } 100% { margin-bottom: 0; }}
         @keyframes popdown { 0% { margin-bottom: 0; } 100% { margin-bottom: -100vh; }}
+.pop__languages {
+    .pop__body { background-color: var(--c1);
+        .pop__close { background-color: transparent;
+            i, svg { color: white; }}
+        a:not(.pop__close) { width: 100%; display: flex; justify-content: center; font-size: var(--fL); color: rgba(255, 255, 255, 0.5);
+            &.language--active { color: white; font-weight: bold; }}}}
 
 /******************************
 5. Uniqle Pages */
 .welcome { background-color: var(--c1);
+    .header__back { display: none; }
     .footer button { background-color: white;
         span { color: var(--cG1) !important; font-size: var(--fL); }}
     .main { max-width: 100vw; height: 90vh; padding: 60px 20px 100px; gap: 10px; display: flex; align-items: center; overflow-x: auto;
-        img { max-width: 100%; max-height: calc(100% - 160px); margin: 0 auto; filter: drop-shadow(0px 5px 10px rgba(0, 0, 0, 0.2)); }}
-    .pop__langauges {
-        .pop__body { background-color: var(--c1);
-            .pop__close { background-color: transparent;
-                i { color: white; }}
-            a:not(.pop__close) { width: 100%; display: flex; justify-content: center; font-size: var(--fL); color: rgba(255, 255, 255, 0.5);
-                &.active { color: white; font-weight: bold; }}}
+        img { max-width: 100%; max-height: calc(100% - 160px); margin: 0 auto; filter: drop-shadow(0px 5px 10px rgba(0, 0, 0, 0.2)); }}}
+
+.categories { background-color: var(--c1);
+    .main { max-width: 1024px; padding: 60px 20px 20px; margin: 0 auto; gap: 20px; display: flex; flex-wrap: wrap;
+        .category { width: 100%; aspect-ratio: 16/9; border-radius: 20px; display: flex; align-items: center; justify-content: center; overflow: hidden; background: black;
+            @media @sD, @sT { width: calc(50% - 10px); }
+            &.category--half { width: calc(50% - 10px); aspect-ratio: 1/1;
+                @media @sD, @sT { width: calc(25% - 15px); }}
+            .category__title { position: absolute; font-size: var(--fXXL); font-weight: bold; color: white; z-index: 1; }
+            img { width: 100%; height: 100%; opacity: 0.4; }}}}
+
+.menu {
+    .menu__categories { width: 100%; max-width: 1024px; min-height: 41px; padding: 0 5px 10px; border-radius: 0 0 0 30px; z-index: 5; left: 50%; top: 59px; transform: translate(-50%, 0); position: fixed; display: flex; align-items: center; overflow-x: scroll; background-color: var(--c1);
+        a { padding: 0 15px; color: rgba(255, 255, 255, 0.5); white-space: nowrap;
+            &.category--active { color: white; font-weight: bold; }}}
+    .main { max-width: 1024px; padding: 115px 20px 20px; margin: 0 auto; gap: 15px; display: flex; flex-wrap: wrap;
+        .search { width: 100%; padding-bottom: 5px; border-bottom: 1px solid var(--cG5); gap: 5px; display: flex; align-items: center;
+            i, svg { color: var(--cG4); }
+            input { width: 100%; }}
+        .title { width: 100%; margin-top: 5px; font-size: var(--fL); font-weight: bold; text-align: center; }
+        .item { width: calc(50% - 7.5px); position: relative; display: flex; flex-direction: column;
+            @media @sD, @sT { width: calc(25% - 11.25px); }
+            &.item--sold-out {
+                span { color: var(--cG4); }}
+            .item__img { width: 100%; aspect-ratio: 1/1; border-radius: 20px; }
+            .item__img--none { width: 100%; aspect-ratio: 1/1; border: 1.5px solid var(--c2); border-radius: 20px; display: flex; align-items: center; justify-content: center;
+                i, svg { color: var(--c2); transform: rotate(-45deg); font-size: 4rem; }}
+            .item__img--sold-out { width: 100%; aspect-ratio: 1/1; border-radius: 20px; top: 0; left: 0; position: absolute; display: flex; align-items: center; justify-content: center; background-color: rgba(0, 0, 0, 0.5); color: white; backdrop-filter: blur(2px); font-size: var(--fL); font-weight: bold; }
+            .item__name { margin-top: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+            .item__price { font-weight: bold; }
+            .item__tag { height: 30px; padding: 0 5px; border-radius: 5px; border: 1.5px solid var(--c1); top: -5px; left: -5px; position: absolute; display: flex; align-items: center; background-color: white; color: var(--c1); }
+            .item__count { min-width: 30px; height: 30px; padding: 0 5px 2.5px; border-radius: 99px; border: 1.5px solid white; top: -5px; right: -5px; position: absolute; display: flex; align-items: center; justify-content: center; background-color: var(--c1); color: white; font-size: var(--fL); }
+        }
     }
-    }
+}
