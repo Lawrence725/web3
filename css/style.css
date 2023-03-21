@@ -469,6 +469,9 @@ button span {
   height: 100%;
   opacity: 0.4;
 }
+.menu {
+  background-color: var(--c1);
+}
 .menu .menu__categories {
   width: 100%;
   max-width: 1024px;
@@ -501,6 +504,7 @@ button span {
   gap: 15px;
   display: flex;
   flex-wrap: wrap;
+  background-color: white;
 }
 .menu .main .search {
   width: 100%;
