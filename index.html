@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>電子菜單</title>
+        <!-- <link rel="icon" type="image/svg" href="./icon/favicon.svg"/> -->
+        <meta charset="UTF-8">
+        <meta name="keywords" content="電子菜單">
+        <meta name="description" content="電子菜單">
+        <meta name="author" content="DotDot">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"> <!-- Screen Ratio -->
+        <meta name="format-detection" content="telephone=no">
+        <!-- CSS -->
+        <link rel="stylesheet" href="./css/style.css">
+        <!-- Awesome Icon -->
+        <link href="./css/fontawesome-free-6.3.0-web/css/all.css" rel="stylesheet">
+    </head>
+    <body class="welcome">
+        <!-- Loading -->
+        <!-- <div class="loading"><div>
+            <img src="/img/brand.png">
+        <div></div></div></div> -->
+        <section class="header">
+            <div class="header__left">
+
+            </div>
+            <img src="/img/brand.svg">
+            <div class="header__right">
+                <a onclick="popLangauges()"><img src="/img/icon/language.svg"></a>
+            </div>
+        </section>
+        <section class="footer">
+            <button>
+                <span>開始點餐</span>
+            </button>
+        </section>
+        <section class="main">
+            <img src="/img/brand.png">
+            <img src="/img/discount.png">
+        </section>
+        <!-- 多國語popup -->
+        <section id="pop__langauges" class="pop pop--full pop__langauges" onclick="popClose(this)">
+            <div class="pop__body">
+                <a onclick="popClose(this)" class="pop__close"><i class="fa-solid fa-xmark fa-lg"></i></a>
+                <a onclick="popClose(this)">English</a>
+                <a onclick="popClose(this)" class="active">中文</a>
+                <a onclick="popClose(this)">日本語</a>
+            </div>
+        </section>
+        <!-- Script -->
+        <script src="./js/welcome.js"></script>
+    </body>
+</html>
