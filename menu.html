@@ -1,6 +1,8 @@
 <!-- HTML Table of Contents
     1. Header
-    2. Main -->
+    2. Footer
+    3. Main
+    4. Popup -->
 
     <!DOCTYPE html>
     <html>
@@ -38,8 +40,20 @@
                 <a>湯品</a>
                 <a>飲料</a>
             </section>
+
+            <!--------------- 2. Footer --------------->
+            <section class="footer">
+                <button class="action" onclick="popCart()">
+                    <i class="action__icon fa-solid fa-cart-shopping fa-lg"></i>
+                    <div class="action__info">
+                        <span class="action__count">2件</span>
+                        <span class="action__price">$2997</span>
+                    </div>
+                    <div class="action__name">購物車</div>
+                </button>
+            </section>
     
-            <!--------------- 2. Main --------------->
+            <!--------------- 3. Main --------------->
             <section class="main">
                 <div class="search">
                     <i class="fa-solid fa-magnifying-glass"></i>
@@ -79,7 +93,96 @@
                 </a>
             </section>
     
+            <!--------------- 4. Popup --------------->
+            <section id="pop__cart" class="pop pop--full pop__cart" onclick="popClose(this)">
+                <div class="pop__body">
+                    <a onclick="popClose(this)" class="pop__close pop__close--fixed"><i class="fa-solid fa-xmark fa-lg"></i></a>
+                    <!-- 標題 -->
+                    <div class="cart-top">
+                        <i class="cart-top__icon fa-solid fa-cart-shopping fa-lg"></i>
+                        <span class="cart-top__title">購物車</span>
+                        <a class="cart-top__clear">
+                            <span>清空</span>
+                            <i class="fa-solid fa-trash"></i>
+                        </a>
+                    </div>
+                    <!-- 商品 -->
+                    <div class="cart-item">
+                        <div class="cart-item__left">
+                            <span class="cart-item__name">金色三麥經典大拼盤</span>
+                            <span class="cart-item__detail">香腸大拼盤 x2・三麥經典洋蔥圈</span>
+                            <span class="cart-item__detail">奶茶・少糖・少冰</span>
+                            <span class="cart-item__detail">備注：飲料一起上</span>
+                            <div class="cart-item__count">
+                                <a><i class="fa-solid fa-minus fa-lg"></i></a>
+                                <span>2</span>
+                                <a><i class="fa-solid fa-plus fa-lg"></i></a>
+                            </div>
+                        </div>
+                        <span class="cart-item__price">$1998</span>
+                    </div>
+                    <div class="cart-item">
+                        <div class="cart-item__left">
+                            <span class="cart-item__name">墨魚醉嗆烏魚子</span>
+                            <span class="cart-item__detail">千島醬・番茄醬</span>
+                            <span class="cart-item__detail">奶茶・少糖・少冰</span>
+                            <div class="cart-item__count">
+                                <a><i class="fa-solid fa-minus fa-lg"></i></a>
+                                <span>2</span>
+                                <a><i class="fa-solid fa-plus fa-lg"></i></a>
+                            </div>
+                        </div>
+                        <span class="cart-item__price">$999</span>
+                    </div>
+                    <div class="cart-item">
+                        <div class="cart-item__left">
+                            <span class="cart-item__name">蜜香滿天飛</span>
+                            <span class="cart-item__detail">備注：餐後上</span>
+                            <div class="cart-item__count">
+                                <a><i class="fa-solid fa-minus fa-lg"></i></a>
+                                <span>1</span>
+                                <a><i class="fa-solid fa-plus fa-lg"></i></a>
+                            </div>
+                        </div>
+                        <span class="cart-item__price">$999</span>
+                    </div>
+                    <!-- 備註 -->
+                    <textarea class="cart-remark" placeholder="訂單備註" oninput="textarea(this)"></textarea>
+                    <!-- 推薦 -->
+                    <div class="cart-suggest">
+                        <span class="suggest-title">推薦商品</span>
+                        <a class="suggest-item">
+                            <img class="suggest-item__img" src="img/food3.png">
+                            <span class="suggest-item__name">墨魚醉嗆烏魚子</span>
+                            <span class="suggest-item__price">$999</span>
+                        </a>
+                        <a class="suggest-item">
+                            <img class="suggest-item__img" src="img/food2.png">
+                            <span class="suggest-item__name">蜜香滿天飛蜜香滿天飛</span>
+                            <span class="suggest-item__price">$999</span>
+                        </a>
+                        <a class="suggest-item">
+                            <img class="suggest-item__img" src="img/food1.png">
+                            <span class="suggest-item__name">墨魚醉嗆烏魚子</span>
+                            <span class="suggest-item__price">$999</span>
+                        </a>
+                    </div>
+                    <!-- 按鈕 -->
+                    <div class="cart-bottom">
+                        <button class="action" onclick="popClose(this)">
+                            <i class="action__icon fa-solid fa-cart-shopping fa-lg"></i>
+                            <div class="action__info">
+                                <span class="action__count">2件</span>
+                                <span class="action__price">$3996</span>
+                            </div>
+                            <div class="action__name">全部送出</div>
+                        </button>
+                    </div>
+                </div>
+            </section>
+    
             <!-- Script -->
             <script src="./js/header.js"></script>
+            <script src="./js/menu.js"></script>
         </body>
     </html>
