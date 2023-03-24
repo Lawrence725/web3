@@ -47,7 +47,7 @@
                     <i class="action__icon fa-solid fa-cart-shopping fa-lg"></i>
                     <div class="action__info">
                         <span class="action__count">2件</span>
-                        <span class="action__price">$2997</span>
+                        <span class="action__price"><s>$3000</s>$2997</span>
                     </div>
                     <div class="action__name">購物車</div>
                 </button>
@@ -60,31 +60,31 @@
                     <input type="text" placeholder="搜尋" value="">
                 </div>
                 <span class="title">主餐</span>
-                <a class="item">
+                <a class="item" onclick="popItem()">
                     <img class="item__img" src="img/food.png">
                     <div class="item__tag">人氣推薦</div>
                     <span class="item__name">金色三麥經典大拼盤</span>
                     <span class="item__price">$999</span>
                     <div class="item__count">2</div>
                 </a>
-                <a class="item">
+                <a class="item" onclick="popItem()">
                     <img class="item__img" src="img/food1.png">
                     <span class="item__name">墨魚醉嗆烏魚子墨魚醉嗆烏魚子</span>
                     <span class="item__price">$999</span>
                 </a>
-                <a class="item">
+                <a class="item" onclick="popItem()">
                     <img class="item__img" src="img/food2.png">
                     <span class="item__name">蜜香滿天飛</span>
                     <span class="item__price">$999</span>
                 </a>
-                <a class="item item--sold-out">
+                <a class="item item--sold-out" onclick="popItem()">
                     <img class="item__img" src="img/food3.png">
                     <div class="item__img--sold-out">售完</div>
                     <span class="item__name">金色三麥經典大拼盤</span>
                     <span class="item__price">$999</span>
                 </a>
                 <span class="title">甜點</span>
-                <a class="item">
+                <a class="item" onclick="popItem()">
                     <div class="item__img--none">
                         <i class="fa-solid fa-utensils"></i>
                     </div>
@@ -94,6 +94,7 @@
             </section>
     
             <!--------------- 4. Popup --------------->
+            <!-- 購物車popup -->
             <section id="pop__cart" class="pop pop--full pop__cart" onclick="popClose(this)">
                 <div class="pop__body">
                     <a onclick="popClose(this)" class="pop__close pop__close--fixed"><i class="fa-solid fa-xmark fa-lg"></i></a>
@@ -149,7 +150,7 @@
                     <!-- 備註 -->
                     <textarea class="cart-remark" placeholder="訂單備註" oninput="textarea(this)"></textarea>
                     <!-- 推薦 -->
-                    <div class="cart-suggest">
+                    <div class="suggest">
                         <span class="suggest-title">推薦商品</span>
                         <a class="suggest-item">
                             <img class="suggest-item__img" src="img/food3.png">
@@ -169,18 +170,332 @@
                     </div>
                     <!-- 按鈕 -->
                     <div class="cart-bottom">
-                        <button class="action" onclick="popClose(this)">
+                        <button class="action" onclick="popWaiter()">
                             <i class="action__icon fa-solid fa-cart-shopping fa-lg"></i>
                             <div class="action__info">
                                 <span class="action__count">2件</span>
-                                <span class="action__price">$3996</span>
+                                <span class="action__price"><s>$4000</s>$3996</span>
                             </div>
                             <div class="action__name">全部送出</div>
                         </button>
                     </div>
                 </div>
             </section>
-    
+
+            <!-- 商品popup
+                    選項類型
+                    1. 複選
+                        1.1 未選取
+                        1.2 已選取
+                        1.3 未選取+已滿足
+                        1.4 已選取+已滿足
+                    2. 多選-直列
+                        2.1 未選取
+                        2.2 已選取
+                        2.3 未選取+已滿足
+                    3. 多選-橫列
+                        3.1 未選取
+                        3.2 已選取
+                        3.3 未選取+已滿足
+                    4. 單選-直列
+                        4.1 未選取
+                        4.2 已選取
+                        4.3 未選取+已滿足
+                    5. 直列-橫列
+                        5.1 未選取
+                        5.2 已選取
+                        5.3 未選取+已滿足 -->
+            <section id="pop__item" class="pop pop--full pop__item" onclick="popClose(this)">
+                <div class="pop__body">
+                    <a onclick="popClose(this)" class="pop__close pop__close--fixed"><i class="fa-solid fa-xmark fa-lg"></i></a>
+                    <!-- 照片 -->
+                    <div id="item-img" class="item-img">
+                        <img src="img/food.png">
+                        <img src="img/food1.png">
+                        <img src="img/food2.png">
+                    </div>
+                    <!-- 資訊 -->
+                    <div class="item-info">
+                        <div class="item-info__tags">
+                            <div>人氣推薦</div>
+                            <div>熱門</div>
+                        </div>
+                        <span class="item-info__name">金色三麥經典大拼盤</span>
+                        <span class="item-info__detail">各式炸物可挑選</span>
+                        <span class="item-info__price"><s>$1998</s>$999</span>
+                    </div>
+                    <!-- 套餐 -->
+                    <div class="item-sets">
+                        <a class="item-set">
+                            <span class="item-set__name">單點</span>
+                        </a>
+                        <a class="item-set item-set--active">
+                            <span class="item-set__name">套餐A</span>
+                            <span class="item-set__detail">飲料</span>
+                        </a>
+                        <a class="item-set">
+                            <span class="item-set__name">套餐B</span>
+                            <span class="item-set__detail">飲料 + 甜點</span>
+                        </a>
+                    </div>
+                    <!-- 1. 複選 -->
+                    <div class="item-settings">
+                        <span class="item-settings__name">炸物</span>
+                        <span class="item-settings__detail">選擇3項・可複選</span>
+                        <div class="item-settings__notice">必選</div>
+                        <!-- 1.1 複選 (未選取) -->
+                        <div class="item-setting">
+                            <div class="item-setting__left">
+                                <span class="item-setting__name">金色三麥雞翅</span>
+                                <span class="item-setting__price">+$0</span>
+                            </div>
+                            <div class="item-setting__right">
+                                <a class="item-setting__plus"><i class="fa-solid fa-plus"></i></a>
+                            </div>
+                        </div>
+                        <!-- 1.2 複選 (已選取) -->
+                        <div class="item-setting">
+                            <div class="item-setting__left">
+                                <span class="item-setting__name">經典大脆薯</span>
+                                <span class="item-setting__price">+$10</span>
+                            </div>
+                            <div class="item-setting__right">
+                                <a class="item-setting__minus"><i class="fa-solid fa-minus"></i></a>
+                                <span class="item-setting__count">2</span>
+                                <a class="item-setting__plus"><i class="fa-solid fa-plus"></i></a>
+                            </div>
+                        </div>
+                        <!-- 1.3 複選 (未選取+已滿足) -->
+                        <div class="item-setting">
+                            <div class="item-setting__left">
+                                <span class="item-setting__name">香腸大拼盤</span>
+                                <span class="item-setting__price">+$20</span>
+                            </div>
+                            <div class="item-setting__right">
+                                <a class="item-setting__plus item-setting__plus--max"><i class="fa-solid fa-plus"></i></a>
+                            </div>
+                        </div>
+                        <!-- 1.4 複選 (已選取+已滿足) -->
+                        <div class="item-setting">
+                            <div class="item-setting__left">
+                                <span class="item-setting__name">三麥經典洋蔥圈</span>
+                                <span class="item-setting__price">+$50</span>
+                            </div>
+                            <div class="item-setting__right">
+                                <a class="item-setting__minus"><i class="fa-solid fa-minus"></i></a>
+                                <span class="item-setting__count">2</span>
+                                <a class="item-setting__plus item-setting__plus--max"><i class="fa-solid fa-plus"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 2. 多選 (直列) -->
+                    <div class="item-settings">
+                        <span class="item-settings__name">醬料</span>
+                        <span class="item-settings__detail">選擇2項・不可複選</span>
+                        <!-- 2.1 多選 (未選取) -->
+                        <label class="item-setting check">
+                            <div class="item-setting__left">
+                                <span class="item-setting__name">胡麻醬</span>
+                                <span class="item-setting__price">+$10</span>
+                            </div>
+                            <input class="check__default" type="checkbox" name="checkboxName"> <!-- checked -->
+                            <span class="check__mark check__mark--checkbox"></span>
+                        </label>
+                        <!-- 2.2 多選 (已選取) -->
+                        <label class="item-setting check">
+                            <div class="item-setting__left">
+                                <span class="item-setting__name">千島醬</span>
+                                <span class="item-setting__price">+$10</span>
+                            </div>
+                            <input class="check__default" type="checkbox" name="checkboxName" checked> <!-- checked -->
+                            <span class="check__mark check__mark--checkbox"></span>
+                        </label>
+                        <!-- 2.3 多選 (未選取+已滿足) -->
+                        <label class="item-setting check">
+                            <div class="item-setting__left">
+                                <span class="item-setting__name">番茄醬</span>
+                                <span class="item-setting__price">+$10</span>
+                            </div>
+                            <input class="check__default" type="checkbox" name="checkboxName"> <!-- checked -->
+                            <span class="check__mark check__mark--checkbox check__mark--full"></span>
+                        </label>
+                    </div>
+                    <!-- 3. 多選 (橫列) -->
+                    <div class="item-settings">
+                        <span class="item-settings__name">醬料</span>
+                        <span class="item-settings__detail">選擇2項・不可複選</span>
+                        <div class="item-setting item-setting__boxes item-setting__boxes--4">
+                            <!-- 3.1 多選 (未選取) -->
+                            <a class="item-setting__box">
+                                <span class="item-setting__name">胡麻醬</span>
+                                <span class="item-setting__price">+$10</span>
+                            </a>
+                            <!-- 3.2 多選 (已選取) -->
+                            <a class="item-setting__box item-setting__box--active">
+                                <span class="item-setting__name">千島醬</span>
+                                <span class="item-setting__price">+$10</span>
+                            </a>
+                            <!-- 3.3 多選 (未選取+已滿足) -->
+                            <a class="item-setting__box item-setting__box--full">
+                                <span class="item-setting__name">番茄醬</span>
+                                <span class="item-setting__price">+$10</span>
+                            </a>
+                            <a class="item-setting__box item-setting__box--full">
+                                <span class="item-setting__name">沙拉醬</span>
+                                <span class="item-setting__price">+$10</span>
+                            </a>
+                            <a class="item-setting__box item-setting__box--full">
+                                <span class="item-setting__name">其他醬</span>
+                                <span class="item-setting__price">+$20</span>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- 4. 單選 (直列) -->
+                    <div class="item-settings">
+                        <span class="item-settings__name">飲料</span>
+                        <span class="item-settings__detail">選擇1項</span>
+                        <!-- 4.1 單選 (未選取) -->
+                        <label class="item-setting check">
+                            <div class="item-setting__left">
+                                <span class="item-setting__name">紅茶</span>
+                                <span class="item-setting__price">+$0</span>
+                            </div>
+                            <input class="check__default" type="radio" name="radioName"> <!-- checked -->
+                            <span class="check__mark check__mark--radio"></span>
+                        </label>
+                        <!-- 4.2 單選 (已選取) -->
+                        <label class="item-setting check">
+                            <div class="item-setting__left">
+                                <span class="item-setting__name">奶茶</span>
+                                <span class="item-setting__price">+$5</span>
+                            </div>
+                            <input class="check__default" type="radio" name="radioName" checked> <!-- checked -->
+                            <span class="check__mark check__mark--radio"></span>
+                        </label>
+                        <!-- 4.3 單選 (未選取+已滿足) -->
+                        <label class="item-setting check">
+                            <div class="item-setting__left">
+                                <span class="item-setting__name">咖啡</span>
+                                <span class="item-setting__price">+$10</span>
+                            </div>
+                            <input class="check__default" type="radio" name="radioName"> <!-- checked -->
+                            <span class="check__mark check__mark--radio check__mark--full"></span>
+                        </label>
+                    </div>
+                    <!-- 5. 單選 (橫列) -->
+                    <div class="item-settings item-settings--error">
+                        <span class="item-settings__name">飲料</span>
+                        <span class="item-settings__detail">選擇1項</span>
+                        <div class="item-settings__notice">請選擇<b>甜度</b></div>
+                        <div class="item-setting item-setting__boxes item-setting__boxes--3">
+                            <!-- 5.1 單選 (未選取) -->
+                            <a class="item-setting__box">
+                                <span class="item-setting__name">紅茶</span>
+                                <span class="item-setting__price">+$0</span>
+                            </a>
+                            <!-- 5.2 單選 (已選取) -->
+                            <a class="item-setting__box item-setting__box--active">
+                                <span class="item-setting__name">奶茶</span>
+                                <span class="item-setting__price">+$5</span>
+                            </a>
+                            <!-- 5.3 單選 (未選取+已滿足) -->
+                            <a class="item-setting__box item-setting__box--full">
+                                <span class="item-setting__name">咖啡</span>
+                                <span class="item-setting__price">+$10</span>
+                            </a>
+                        </div>
+                        <div class="item-settings item-settings__sub">
+                            <span class="item-settings__name item-settings__name--error">甜度</span>
+                            <div class="item-setting item-setting__boxes item-setting__boxes--5">
+                                <a class="item-setting__box">
+                                    <span class="item-setting__name">全糖</span>
+                                </a>
+                                <a class="item-setting__box">
+                                    <span class="item-setting__name">少糖</span>
+                                </a>
+                                <a class="item-setting__box">
+                                    <span class="item-setting__name">微糖</span>
+                                </a>
+                                <a class="item-setting__box">
+                                    <span class="item-setting__name">無糖</span>
+                                </a>
+                            </div>
+                            <span class="item-settings__name">冰塊</span>
+                            <div class="item-setting item-setting__boxes item-setting__boxes--5">
+                                <a class="item-setting__box item-setting__box--full">
+                                    <span class="item-setting__name">正常</span>
+                                </a>
+                                <a class="item-setting__box item-setting__box--active">
+                                    <span class="item-setting__name">少冰</span>
+                                </a>
+                                <a class="item-setting__box item-setting__box--full">
+                                    <span class="item-setting__name">去冰</span>
+                                </a>
+                                <a class="item-setting__box item-setting__box--full">
+                                    <span class="item-setting__name">溫</span>
+                                </a>
+                                <a class="item-setting__box item-setting__box--full">
+                                    <span class="item-setting__name">熱</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 備註 -->
+                    <div class="item-settings">
+                        <span class="item-settings__name">餐點備註</span>
+                        <textarea class="item-settings__remark" placeholder="輸入備註" oninput="textarea(this)"></textarea>
+                    </div>
+                    <!-- 數量 -->
+                    <div class="item-count">
+                        <a class="item-count__minus"><i class="fa-solid fa-minus fa-xl"></i></a>
+                        <span class="item-count__number">2</span>
+                        <a class="item-count__plus item-count__max"><i class="fa-solid fa-plus fa-xl"></i></a>
+                        <span class="item-count__notice">已達數量上限</span>
+                    </div>
+                    <!-- 推薦 -->
+                    <div class="suggest">
+                        <span class="suggest-title">推薦商品</span>
+                        <a class="suggest-item">
+                            <img class="suggest-item__img" src="img/food3.png">
+                            <span class="suggest-item__name">墨魚醉嗆烏魚子</span>
+                            <span class="suggest-item__price">$999</span>
+                        </a>
+                        <a class="suggest-item">
+                            <img class="suggest-item__img" src="img/food2.png">
+                            <span class="suggest-item__name">蜜香滿天飛蜜香滿天飛</span>
+                            <span class="suggest-item__price">$999</span>
+                        </a>
+                        <a class="suggest-item">
+                            <img class="suggest-item__img" src="img/food1.png">
+                            <span class="suggest-item__name">墨魚醉嗆烏魚子</span>
+                            <span class="suggest-item__price">$999</span>
+                        </a>
+                    </div>
+                    <!-- 按鈕 -->
+                    <div class="item-bottom">
+                        <button class="action" onclick="popClose(this)">
+                            <i class="action__icon fa-solid fa-cart-plus fa-lg"></i>
+                            <div class="action__info">
+                                <span class="action__count">2件</span>
+                                <span class="action__price"><s>$1998</s>$999</span>
+                            </div>
+                            <div class="action__name">加入購物車</div>
+                        </button>
+                    </div>
+                </div>
+            </section>
+            <!-- 呼叫店員popup -->
+            <section id="pop__waiter" class="pop pop--center pop__waiter" onclick="popClose(this)">
+                <div class="pop__body">
+                    <div class="pop__icons">
+                        <div class="pop__icon"><i class="fa-regular fa-hand fa-3x"></i></div>
+                    </div>
+                    <span class="pop__title">請出示購物車給店員以確認餐點</span>
+                    <button class="pop__action" onclick="popClose(this)">
+                        <span>了解</span>
+                    </button>
+                </div>
+            </section>
             <!-- Script -->
             <script src="./js/header.js"></script>
             <script src="./js/menu.js"></script>
