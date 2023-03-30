@@ -17,6 +17,12 @@
                 .item-set__name { font-size: @fL; font-weight: bold; }}}
         .item-settings { width: 100%; padding: 15px; border-radius: 15px; position: relative; display: flex; flex-direction: column; align-items: center; background-color: white;
             &.item-settings--error { border: 1.5px solid @cRed; }
+            &.item-settings--qc {
+                .item-setting {
+                    &.item-setting__boxes .item-setting__box.item-setting__box--active { background-color: @cQ1; }
+                    .item-setting__right .item-setting__minus, .item-setting__plus { background-color: @cQ2 !important;
+                        i, svg { color: @cQ1 !important; }}}
+                .check .check__default:checked ~ .check__mark { background-color: @cQ1; border: 2px solid @cQ1; }}
             .item-settings__name { font-size: @fL; font-weight: bold; 
                 &.item-settings__name--error { color: @cRed; }}
             .item-settings__detail { color: @cG3; }
@@ -43,8 +49,8 @@
                     .item-setting__price { color: @cG3; }}
                 .item-setting__right { margin-left: 10px; display: flex; align-items: center;
                     .item-setting__minus, .item-setting__plus { width: 30px; height: 30px; border-radius: 5px; display: flex; align-items: center; justify-content: center; background-color: @c2;
-                        &.item-setting__plus--max { background-color: transparent;
-                            i, svg { color: @cG4; }}
+                        &.item-setting__plus--max { background-color: transparent !important;
+                            i, svg { color: @cG4 !important; }}
                         i, svg { color: @c1; }}
                     .item-setting__count { width: 40px; font-size: @fL; text-align: center; }}}}
         .item-count { width: 100%; padding: 20px 0 40px; position: relative; display: flex; align-items: center; justify-content: center;
