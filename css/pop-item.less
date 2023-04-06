@@ -17,7 +17,8 @@
                 .item-set__name { font-size: @fL; font-weight: bold; }}}
         .item-settings { width: 100%; padding: 15px; border-radius: 15px; position: relative; display: flex; flex-direction: column; align-items: center; background-color: white;
             &.item-settings--error { border: 1.5px solid @cRed; }
-            &.item-settings--qc {
+            &.item-settings--qc { background-color: @cBg;
+                .item-settings__sub { background-color: white; }
                 .item-setting {
                     &.item-setting__boxes .item-setting__box.item-setting__box--active { background-color: @cQ1; }
                     .item-setting__right .item-setting__minus, .item-setting__plus { background-color: @cQ2 !important;
@@ -30,7 +31,8 @@
             .item-settings__remark { width: 100%; height: 23px; min-height: 23px; margin-top: 5px; overflow: hidden; text-align: center; }
             .item-settings__sub { padding: 0 10px 10px; margin-top: 10px; border-radius: 10px; background-color: @cBg;
                 > * { margin-top: 10px; }
-                .item-settings__name { font-size: @fM; }}
+                .item-settings__name { font-size: @fM; }
+                .item-settings__detail { font-size: @fS; margin-top: 0; }}
             .item-setting { width: 100%; margin-top: 5px; display: flex;
                 &.item-setting__boxes { margin-top: 10px; gap: 10px; flex-wrap: wrap;
                     &.item-setting__boxes--2 .item-setting__box { width: calc(50% - 5px); }
