@@ -109,11 +109,16 @@ button { width: 100%; height: 60px; border-radius: 20px; display: flex; align-it
         .action__price { font-size: @fL;
             s { margin-right: 5px; color: rgba(255, 255, 255, 0.6) !important; }}}
     .action__name { height: 100%; padding: 0 10px; border: 1px solid rgba(255, 255, 255, 0.25); border-radius: 16.25px; display: flex; align-items: center; white-space: nowrap; font-size: @fL; }}
-.header { width: 100%; max-width: 1024px; min-height: 60px; padding: 0 20px; gap: 5px; z-index: 5; left: 50%; transform: translate(-50%, 0); position: fixed; display: flex; align-items: center; justify-content: center; background-color: @c1;
+.header { width: 100%; max-width: 1024px; min-height: 60px; padding: 0 20px; gap: 10px; z-index: 5; left: 50%; transform: translate(-50%, 0); position: fixed; display: flex; align-items: center; justify-content: center; background-color: @c1;
     a i, a svg { color: white; }
-    .header__left { width: 100%; display: flex; align-items: center; }
-    .header__right { width: 100%; display: flex; align-items: center; justify-content: flex-end;
-        a { border-radius: 99px; display: flex; }}}
+    .header__left { width: 100%; gap: 15px; display: flex; align-items: center; }
+    .header__right { width: 100%; gap: 15px; display: flex; align-items: center; justify-content: flex-end;
+        .header__languages { border-radius: 99px; display: flex; }
+        .header__order { display: flex; position: relative;
+            .header__order-count { width: 22px; height: 22px; padding-bottom: 3px; border: 2px solid @c1; border-radius: 99px; top: -10px; right: -10px; position: absolute; display: flex; align-items: center; justify-content: center; background-color: @cRed; color: white; font-size: @fS; }}}
+    .header__info { display: flex; flex-direction: column; align-items: center;
+        .header__info-name { font-size: @fS; color: rgba(255, 255, 255, 0.6); white-space: nowrap; }
+        .header__info-content { margin-top: -5px; font-size: @fL; color: white; white-space: nowrap; }}}
 .footer { width: 100%; max-width: 1024px; padding: 20px; z-index: 5; left: 50%; bottom: 0; transform: translate(-50%, 0); position: fixed; display: flex; flex-direction: column; align-items: center; }
 .pop { width: 100%; height: 100%; padding: 10px; position: fixed; top: 0; left: 0; background-color: rgba(0, 0, 0, 0.5); display: none; align-items: flex-end; justify-content: center; z-index: 8;
     &.pop--full { padding: 70px 0 0;
@@ -143,3 +148,42 @@ button { width: 100%; height: 60px; border-radius: 20px; display: flex; align-it
         .suggest-item__img { max-height: 120px; aspect-ratio: 1/1; border-radius: 15px; }
         .suggest-item__name { margin-top: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
         .suggest-item__price { font-weight: bold; }}}
+.result { width: 100%; display: flex; flex-direction: column; align-items: center;
+    .result__icon { margin-bottom: 10px; border-radius: 999px; color: white; box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2); animation: spark 2s ease infinite; }
+    .result__title { font-size: @fXL; color: white; }
+    .result__content { font-size: @fM; color: rgba(255, 255, 255, 0.6); }}
+    @keyframes spark { 0% { box-shadow: 0px 5px 20px rgba(255, 255, 255, 0.5); } 50% { box-shadow: none; } 100% { box-shadow: 0px 5px 20px rgba(255, 255, 255, 0.5); }}
+.receipt { width: 100%; padding: 10px 15px 15px; margin-bottom: 15px; gap: 15px; position: relative; display: flex; flex-direction: column; background-color: white;
+    &::after { content: ""; width: 100%; height: 15px; left: 0; top: calc(100% - 1px); position: absolute; background: url(../img/icon/zip.svg) center center repeat; background-size: contain; }
+    .receipt__header { width: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+    .receipt__sub-header { width: 100%; display: flex; align-items: center; justify-content: space-between; }
+    .receipt__title { font-size: @fL; font-weight: bold; }
+    .receipt__no { font-size: @fM; font-weight: bold; color: @c1; }
+    .receipt__date { font-size: @fM; color: @cG3; }
+    .receipt-item { width: 100%; gap: 10px; display: flex;
+        &.receipt-item--min {
+            .receipt-item__dropdown {
+                i, svg { transform: rotate(-90deg); }}
+            .receipt-item__detail { max-height: 23px; display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; overflow: hidden; text-overflow: ellipsis; }}
+        .receipt-item__left { display: flex; flex-direction: column; align-items: center; }
+        .receipt-item__center { width: 100%; display: flex; flex-direction: column; }
+        .receipt-item__right { display: flex; flex-direction: column; align-items: flex-end; }
+        .receipt-item__count { width: 28px; border-radius: 5px; display: flex; align-items: center; justify-content: center; background-color: @c2; color: @c1; font-size: @fL; }
+        .receipt-item__dropdown { width: 23px; height: 23px; display: flex; align-items: center; justify-content: center;
+            i, svg { color: @c1; transform: rotate(0deg); animation-duration: 0.5s; animation-iteration-count: 1; }}
+        .receipt-item__name { font-size: @fL; }
+        .receipt-item__detail { max-height: 200px; font-size: @fM; color: @cG3; overflow: hidden; animation-duration: 0.5s; animation-iteration-count: 1; }
+        .receipt-item__price { font-size: @fL; font-weight: bold; }
+        .receipt-item__price--discount { font-size: @fM; font-weight: bold; color: @cG4; text-decoration: line-through; }}
+    .receipt__remark { width: 100%; color: @cG3; font-size: @fM; text-align: center; }
+    .receipt__dash { height: 2px; background: repeating-linear-gradient(90deg,@cG5 0 10px,#0000 0 20px) }
+    .receipt-total { width: 100%; gap: 10px; display: flex; flex-direction: column;
+        .receipt-total__item { width: 100%; display: flex; gap: 10px;
+            &.receipt-total__item--discount span { color: @cRed; }}
+        .receipt-total__name { width: 100%; font-size: @fL;
+            .receipt-total__name--strong { color: @c1; font-size: @fL; font-weight: bold; }}
+        .receipt-total__price { font-size: @fL; font-weight: bold; white-space: nowrap; }}}
+    @keyframes dropdownMin { 0% { transform: rotate(0deg); } 100% { transform: rotate(-90deg); }}
+    @keyframes dropdownMax { 0% { transform: rotate(-90deg); } 100% { transform: rotate(0deg); }}
+    @keyframes detailMin { 0% { max-height: 200px; } 100% { max-height: 23px; }}
+    @keyframes detailMax { 0% { max-height: 23px; } 100% { max-height: 200px; }}
