@@ -60,9 +60,11 @@ select, input, textarea, button, ol, ul     { font-size: @fM; font-family: 'Noto
 span, p, h1, h2, h3, h4, h5, h6, div,
 input, textarea, ol, ul                     { color: @cG1; }
 a                                           { border-radius: 5px; color: inherit; text-decoration: none !important; }
-a:hover                                     { cursor: pointer; box-shadow: inset 0 0 100px 100px rgba(255, 255, 255, 0.2); }
+a:hover                                     { cursor: pointer;
+    @media @sD                              { box-shadow: inset 0 0 100px 100px rgba(255, 255, 255, 0.2); }}
 button                                      { border: none; }
-button:hover                                { cursor: pointer; box-shadow: inset 0 0 100px 100px rgba(255, 255, 255, 0.2); }
+button:hover                                { cursor: pointer;
+    @media @sD                              { box-shadow: inset 0 0 100px 100px rgba(255, 255, 255, 0.2); }}
 input                                       { border: 0; padding: 0; background-color: transparent; }
 input:focus                                 { box-shadow: none !important; outline: none; }
 input:-webkit-autofill                      { color: @c1 !important; background-color: transparent !important; box-shadow: 0 0 0px 1000px white inset !important; background-clip: content-box !important; }
