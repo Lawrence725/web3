@@ -30,7 +30,10 @@
         <!--------------- 1. Header --------------->
         <section id ="header"></section>
         <section class="menu__categories">
-            <a class="category--active">主餐</a>
+            <a class="category--active">為您推薦</a>
+            <a>專屬推薦</a>
+            <a>熱門商品</a>
+            <a>主餐</a>
             <a>副餐</a>
             <a>前菜</a>
             <a>沙拉</a>
@@ -60,10 +63,10 @@
                 <i class="fa-solid fa-magnifying-glass"></i>
                 <input type="text" placeholder="搜尋" value="">
             </div>
-            <span class="title">主餐</span>
+            <span class="title">為您推薦</span>
             <a class="item" onclick="popItem()">
                 <img class="item__img" src="img/food.png">
-                <div class="item__tag">熱門・人氣推薦・最新推出</div>
+                <div class="item__tag">95%相似</div>
                 <span class="item__name">金色三麥經典大拼盤</span>
                 <span class="item__price">$999</span>
                 <div class="item__count">2</div>
@@ -84,11 +87,12 @@
                 <span class="item__name">金色三麥經典大拼盤</span>
                 <span class="item__price">$999</span>
             </a>
-            <span class="title">甜點</span>
+            <span class="title">主餐</span>
             <a class="item" onclick="popItem()">
                 <div class="item__img--none">
                     <i class="fa-solid fa-utensils"></i>
                 </div>
+                <div class="item__tag">熱門商品・專屬推薦・最新推出</div>
                 <span class="item__name">墨魚醉嗆烏魚子</span>
                 <span class="item__price">$999</span>
             </a>
@@ -99,18 +103,18 @@
             </div>
             <!-- 推薦 -->
             <div class="suggest">
-                <span class="suggest-title">推薦商品</span>
-                <a class="suggest-item">
+                <span class="suggest-title">其他推薦商品</span>
+                <a class="suggest-item" onclick="popItem()">
                     <img class="suggest-item__img" src="img/food3.png">
                     <span class="suggest-item__name">墨魚醉嗆烏魚子</span>
                     <span class="suggest-item__price">$999</span>
                 </a>
-                <a class="suggest-item">
+                <a class="suggest-item" onclick="popItem()">
                     <img class="suggest-item__img" src="img/food2.png">
                     <span class="suggest-item__name">蜜香滿天飛蜜香滿天飛</span>
                     <span class="suggest-item__price">$999</span>
                 </a>
-                <a class="suggest-item">
+                <a class="suggest-item" onclick="popItem()">
                     <img class="suggest-item__img" src="img/food1.png">
                     <span class="suggest-item__name">墨魚醉嗆烏魚子</span>
                     <span class="suggest-item__price">$999</span>
@@ -173,26 +177,7 @@
                     <span class="cart-item__price">$999</span>
                 </div>
                 <!-- 備註 -->
-                <textarea class="cart-remark" placeholder="訂單備註" oninput="textarea(this)"></textarea>
-                <!-- 推薦 -->
-                <div class="suggest">
-                    <span class="suggest-title">推薦商品</span>
-                    <a class="suggest-item">
-                        <img class="suggest-item__img" src="img/food3.png">
-                        <span class="suggest-item__name">墨魚醉嗆烏魚子</span>
-                        <span class="suggest-item__price">$999</span>
-                    </a>
-                    <a class="suggest-item">
-                        <img class="suggest-item__img" src="img/food2.png">
-                        <span class="suggest-item__name">蜜香滿天飛蜜香滿天飛</span>
-                        <span class="suggest-item__price">$999</span>
-                    </a>
-                    <a class="suggest-item">
-                        <img class="suggest-item__img" src="img/food1.png">
-                        <span class="suggest-item__name">墨魚醉嗆烏魚子</span>
-                        <span class="suggest-item__price">$999</span>
-                    </a>
-                </div>
+                <!-- <textarea class="cart-remark" placeholder="訂單備註" oninput="textarea(this)"></textarea> -->
                 <!-- 按鈕 -->
                 <div class="cart-bottom">
                     <button class="action" onclick="window.location.href='order.html'">
@@ -481,7 +466,7 @@
                 </div>
                 <!-- 推薦 -->
                 <div class="suggest">
-                    <span class="suggest-title">推薦商品</span>
+                    <span class="suggest-title">經常一起點</span>
                     <a class="suggest-item">
                         <img class="suggest-item__img" src="img/food3.png">
                         <span class="suggest-item__name">墨魚醉嗆烏魚子</span>
