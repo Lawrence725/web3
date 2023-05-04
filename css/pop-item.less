@@ -2,7 +2,8 @@
 .pop__item {
     .pop__body { background-color: @cBg; overflow-x: hidden;
         > *:nth-last-child(2) { margin-bottom: 100px; }
-        .item-img { width: calc(100% + 40px); min-height: 200px; height: fit-content; aspect-ratio: 1/1; padding: 0 20px; gap: 10px; display: flex; overflow-x: scroll;
+        .item-img { width: calc(100% + 40px); min-height: 200px; height: fit-content; aspect-ratio: 1/1; padding: 0 20px; gap: 10px; display: flex; overflow-x: scroll; -ms-overflow-style: none; scrollbar-width: none;
+            &::-webkit-scrollbar { display: none; }
             img { width: 100%; height: fit-content; max-width: 400px; max-height: 400px; aspect-ratio: 1/1; border-radius: 15px; }}
         .item-info { width: 100%; gap: 2px; display: flex; flex-direction: column;
             .item-info__tags { gap: 5px; display: flex; flex-wrap: wrap;
