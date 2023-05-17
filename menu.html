@@ -19,6 +19,7 @@
         <link href="./css/menu.less" rel="stylesheet/less" type="text/css"/>
         <link href="./css/pop-cart.less" rel="stylesheet/less" type="text/css"/>
         <link href="./css/pop-item.less" rel="stylesheet/less" type="text/css"/>
+        <link href="./css/pop-suggest.less" rel="stylesheet/less" type="text/css"/>
         <link href="./css/fontawesome-free-6.3.0-web/css/all.css" rel="stylesheet"> <!-- Awesome Icon -->
     </head>
     <body class="menu"> <!-- Dark theme class: menu--dark -->
@@ -99,7 +100,7 @@
             <!-- 搜尋最底 -->
             <div class="search__bottom">
                 <span class="search__bottom-content">沒有更多「拼盤」相關商品</span>
-                <a class="search__bottom-action">查看全部商品</a>
+                <a class="search__bottom-action" onclick="popNotice()">查看全部商品</a>
             </div>
             <!-- 推薦 -->
             <div class="suggest">
@@ -180,7 +181,7 @@
                 <!-- <textarea class="cart-remark" placeholder="訂單備註" oninput="textarea(this)"></textarea> -->
                 <!-- 按鈕 -->
                 <div class="cart-bottom">
-                    <button class="action" onclick="window.location.href='order.html'">
+                    <button class="action" onclick="popSuggest()">
                         <i class="action__icon fa-solid fa-cart-shopping fa-lg"></i>
                         <div class="action__info">
                             <span class="action__count">2件</span>
@@ -496,18 +497,63 @@
                 </div>
             </div>
         </section>
-        <!-- 呼叫店員popup -->
-        <section id="pop__waiter" class="pop pop--center pop__waiter" onclick="popClose(this)">
+
+        <!-- 推薦一起點popup -->
+        <section id="pop__suggest" class="pop pop--full pop__suggest" onclick="popClose(this)">
             <div class="pop__body">
-                <div class="pop__icons">
-                    <div class="pop__icon"><i class="fa-regular fa-hand fa-3x"></i></div>
-                </div>
-                <span class="pop__title">請出示購物車給店員以確認餐點</span>
-                <button class="pop__action" onclick="popClose(this)">
-                    <span>了解</span>
+                <a onclick="popClose(this)" class="pop__close pop__close--fixed"><i class="fa-solid fa-xmark fa-lg"></i></a>
+                <span class="suggest__title">推薦一起點</span>
+                <a class="item" onclick="popItem()">
+                    <img class="item__img" src="img/food.png">
+                    <div class="item__tag">95%相似</div>
+                    <span class="item__name">金色三麥經典大拼盤</span>
+                    <span class="item__price">$999</span>
+                    <div class="item__count">2</div>
+                </a>
+                <a class="item" onclick="popItem()">
+                    <img class="item__img" src="img/food1.png">
+                    <span class="item__name">墨魚醉嗆烏魚子墨魚醉嗆烏魚子</span>
+                    <span class="item__price">$999</span>
+                </a>
+                <a class="item" onclick="popItem()">
+                    <img class="item__img" src="img/food2.png">
+                    <span class="item__name">蜜香滿天飛</span>
+                    <span class="item__price">$999</span>
+                </a>
+                <a class="item item--sold-out" onclick="popItem()">
+                    <img class="item__img" src="img/food3.png">
+                    <div class="item__img--sold-out">售完</div>
+                    <span class="item__name">金色三麥經典大拼盤</span>
+                    <span class="item__price">$999</span>
+                </a>
+                <!-- 按鈕 -->
+                <button class="suggest__button" onclick="window.location.href='order.html'">
+                    <span>先不用</span>
                 </button>
             </div>
         </section>
+
+        <!-- 通知popup -->
+        <section id="pop__notice" class="pop pop--center pop__notice" onclick="popClose(this)">
+            <div class="pop__body">
+                <div class="pop__icons">
+                    <div class="pop__icon pop__icon--green"><i class="fa-solid fa-check fa-3x"></i></div>
+                    <div class="pop__icon"><i class="fa-regular fa-exclamation fa-3x"></i></div>
+                    <div class="pop__icon pop__icon--red"><i class="fa-solid fa-xmark fa-3x"></i></div>
+                </div>
+                <span class="pop__title">通知標題</span>
+                <span class="pop__content">通知內容</span>
+                <div class="pop__actions">
+                    <button class="pop__action pop__action--minor" onclick="popClose(this)">
+                        <span>取消</span>
+                    </button>
+                    <button class="pop__action" onclick="popClose(this)">
+                        <span>確認</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
         <!-- Script -->
         <script src="./js/less.js" ></script> <!-- Less -->
         <script src="./js/header.js"></script>

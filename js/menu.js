@@ -10,9 +10,14 @@ function popCart() {
     document.getElementById("pop__cart").style.display = "flex";
     document.body.style.overflow = "hidden"; }
 
-// 呼叫店員popup
-function popWaiter() {
-    document.getElementById("pop__waiter").style.display = "flex";
+// 推薦一起點popup
+function popSuggest() {
+    document.getElementById("pop__suggest").style.display = "flex";
+    document.body.style.overflow = "hidden"; }
+
+// 通知popup
+function popNotice() {
+    document.getElementById("pop__notice").style.display = "flex";
     document.body.style.overflow = "hidden"; }
 
 // 備註自動高度
