@@ -27,7 +27,9 @@
                 span { color: @cG4; }
                 .item__img { filter: grayscale(100%); opacity: 50%; }
                 .item__tag { filter: grayscale(100%); }}
-            &.item--no-img { padding-top: 25px; }
+            &.item--no-img { padding-top: 25px;
+                .item__name { margin-top: auto; }
+                .item__price { margin-top: 0; }}
             .item__img { width: 100%; aspect-ratio: 1/1; border-radius: 15px; }
             .item__img--none { width: 100%; aspect-ratio: 1/1; border: 1.5px solid @c2; border-radius: 20px; display: flex; align-items: center; justify-content: center;
                 i, svg { color: @c2; transform: rotate(-45deg); font-size: 4rem; }}
