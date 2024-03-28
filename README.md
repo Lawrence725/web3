@@ -1,7 +1,7 @@
 Color
     Primary:    @c1
-    Secondary:  @c2
-    Third:      @c3
+    Secondary:  @c2 (Cancelled)
+    Third:      @c3 (Cancelled)
 
 Theme
     Light:      .menu

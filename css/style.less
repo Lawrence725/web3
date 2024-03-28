@@ -25,8 +25,8 @@
 @fXS:  0.6rem;
 
 /* Color */
-@c1:     #1C1C1E; /* 1C1C1E 877650 */
-@c2:     #D2D2D2; /* D2D2D2 E7E4DC */
+@c1:     #877650; /* 1C1C1E 877650 */
+@c2:     #F2F1F6; /* D2D2D2 E7E4DC */
 @cQ1:    #FF9900;
 @cQ2:    #FFEED8;
 @cG1:    #333333;
@@ -90,13 +90,13 @@ iframe                                      { border: 0; }
     .check__default { display: none;
         &:checked ~ .check__mark { background-color: @c1; border: 2px solid @c1; }
         &:checked ~ .check__mark:after { display: block; }}
-    .check__mark { width: 24px; height: 24px; right: 0; position: absolute; background: @cG5;
+    .check__mark { width: 30px; height: 30px; right: 0; position: absolute; background: @cG5;
         &:after { content: ""; position: absolute; display: none; }
         &.check__mark--full { border: 2px solid @cG5; background-color: white; }
         &.check__mark--radio { border-radius: 50%;
-            &:after { top: 7.5px; left: 7.5px; width: 5px; height: 5px; border-radius: 50%; background: white; }}
-        &.check__mark--checkbox { border-radius: 3px;
-            &:after { left: 5.5px; top: 0.5px; width: 9px; height: 15px; border: solid white; border-width: 0 3px 3px 0; -webkit-transform: rotate(45deg); -ms-transform: rotate(45deg); transform: rotate(45deg); }}}}
+            &:after { top: 9px; left: 9px; width: 8px; height: 8px; border-radius: 50%; background: white; }}
+        &.check__mark--checkbox { border-radius: 5px;
+            &:after { left: 8.5px; top: 3px; width: 9px; height: 16px; border: solid white; border-width: 0 3px 3px 0; -webkit-transform: rotate(45deg); -ms-transform: rotate(45deg); transform: rotate(45deg); }}}}
 button { width: 100%; height: 60px; border-radius: 20px; display: flex; align-items: center; justify-content: center; gap: 5px; background-color: @c1;
     * { color: white !important; }}
 .action { max-width: 512px; padding: 7.5px 7.5px 7.5px 15px; gap: 10px; display: flex; align-items: center; filter: drop-shadow(0px 0px 10px rgba(55, 84, 170, 0.2));
@@ -172,7 +172,7 @@ button { width: 100%; height: 60px; border-radius: 20px; display: flex; align-it
         .receipt-item__left { display: flex; flex-direction: column; align-items: center; }
         .receipt-item__center { width: 100%; display: flex; flex-direction: column; }
         .receipt-item__right { display: flex; flex-direction: column; align-items: flex-end; }
-        .receipt-item__count { width: 28px; border-radius: 5px; display: flex; align-items: center; justify-content: center; background-color: @c2; color: @c1; font-size: @fL; }
+        .receipt-item__count { width: 28px; border-radius: 5px; display: flex; align-items: center; justify-content: center; background-color: @cBg; color: @c1; font-size: @fL; }
         .receipt-item__dropdown { width: 23px; height: 23px; display: flex; align-items: center; justify-content: center;
             i, svg { color: @c1; transform: rotate(0deg); animation-duration: 0.5s; animation-iteration-count: 1; }}
         .receipt-item__name { font-size: @fL; }
