@@ -12,6 +12,7 @@
         <span class="header__info-content">1:29</span>
     </div>
     <div class="header__right">
+        <a class="header__notice" onclick="popNotice()"><img src="img/icon/notice.svg"></a>
         <a class="header__order" onclick="window.location.href='order.html'">
             <img src="img/icon/order.svg">
             <div class="header__order-count">2</div>
@@ -27,5 +28,23 @@
         <a onclick="popClose(this)">English</a>
         <a onclick="popClose(this)" class="language--active">中文</a>
         <a onclick="popClose(this)">日本語</a>
+    </div>
+</section>
+
+<!-- 公告popup -->
+<section id="pop__notice" class="pop pop--full pop__notice" onclick="popClose(this)">
+    <div class="pop__body">
+        <a onclick="popClose(this)" class="pop__close pop__close--fixed"><i class="fa-solid fa-xmark fa-lg"></i></a>
+        <img class="notice__img" src="img/discount2.png">
+        <span class="pop__title">新春九折優惠</span>
+        <span class="pop__content">2月1號到2月31號期間，所有商品不分價格同享9折優惠，詳情以店內為主。<br>限時優惠：此優惠只在指定時間內有效，過期即失效，請務必在規定時間內完成購物。<br>滿額優惠：當您的購物金額達到一定金額時，才可以享有此優惠，具體門檻請參考優惠說明。</span>
+        <div class="pop__actions">
+            <button class="pop__action pop__action--minor" onclick="popClose(this)">
+                <span>不再提醒</span>
+            </button>
+            <button class="pop__action" onclick="popClose(this)">
+                <span>了解</span>
+            </button>
+        </div>
     </div>
 </section>

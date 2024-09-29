@@ -28,3 +28,8 @@ function popClose(e) {
 function popLanguages() {
     document.getElementById("pop__languages").style.display = "flex";
     document.body.style.overflow = "hidden"; }
+
+// 公告popup
+function popNotice() {
+    document.getElementById("pop__notice").style.display = "flex";
+    document.body.style.overflow = "hidden"; }
