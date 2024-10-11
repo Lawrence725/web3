@@ -16,8 +16,8 @@ function popSuggest() {
     document.body.style.overflow = "hidden"; }
 
 // 通知popup
-function popNotice() {
-    document.getElementById("pop__notice").style.display = "flex";
+function popWarning() {
+    document.getElementById("pop__warning").style.display = "flex";
     document.body.style.overflow = "hidden"; }
 
 // 備註自動高度
