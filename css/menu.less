@@ -1,5 +1,36 @@
 @import "./style.less";
 .menu {
+    &.light {
+        .menu__categories a { color: @cG1 !important;}
+        .item {
+            .item__tag { border: 1.5px solid @cG1 !important; color: @cG1 !important; }
+            .item__count { background-color: @cG1 !important; }}
+        .search__bottom-action { color: @cG1 !important; }
+        .suggest {
+            .suggest-title { color: @cG1 !important; }}
+        .footer {
+            i, svg, span, s, .action__name { color: @cG1 !important; }
+            .action__name { border: 1px solid rgba(51, 51, 51, 0.25); }}
+        .pop__cart {
+            .cart-top__icon, .cart-top__title, .cart-item__count i, .cart-item__count svg { color: @cG1 !important; }
+            .cart-bottom {
+                i, svg, span, s, .action__name { color: @cG1 !important; }
+                .action__name { border: 1px solid rgba(51, 51, 51, 0.25); }}}
+        .pop__suggest {
+            .suggest__title { color: @cG1 !important; }
+            .suggest__button { box-shadow: 0px 5px 10px 0px rgba(55, 84, 170, 0.20);
+                span { color: @cG1 !important; }}}
+        .pop__item {
+            .item-info__tags div { border: 1.5px solid @cG1 !important; color: @cG1 !important; }
+            .item-set--active { background-color: @cG1 !important; }
+            .item-setting__right a { background-color: @cG1 !important; }
+            .check .check__default:checked ~ .check__mark { background-color: @cG1; border: 2px solid @cG1; }
+            .item-setting__box--active { background-color: @cG1 !important; }
+            .item-count a:not(.item-count__max) { background-color: @cG1 !important; }}
+            .item-bottom {
+                i, svg, span, s, .action__name { color: @cG1 !important; }
+                .action__name { border: 1px solid rgba(51, 51, 51, 0.25); }}
+    }
     &.menu--dark { background-color: @cG1;
         .main { background-color: @cG1;
             .search { border-bottom: 1px solid @cG2;
@@ -21,9 +52,9 @@
             i, svg { color: @cG4; }
             input { width: 100%; }}
         .title { width: 100%; margin-top: 5px; font-size: @fL; font-weight: bold; text-align: center; }
-        .item { width: calc(50% - 7.5px); border: 1.5px solid @cBg; border-radius: 15px; position: relative; display: flex; flex-direction: column;
+        .item { width: calc(50% - 7.5px); border: 1.5px solid @cG5; border-radius: 15px; position: relative; display: flex; flex-direction: column;
             @media @sD, @sT { width: calc(25% - 11.25px); }
-            &.item--single { width: 100%; min-height: 115px; padding: 0 110px 15px 0; border: none; border-bottom: 1.5px solid @cBg; border-radius: 0;
+            &.item--single { width: 100%; min-height: 115px; padding: 0 110px 15px 0; border: none; border-bottom: 1.5px solid @cG5; border-radius: 0;
                 @media @sD, @sT { width: calc(50% - 7.5px); }
                 &.item--no-img { min-height: unset; padding: 0 0 15px 0; }
                 .item__name, .item__price { padding: 0; margin: 0; }

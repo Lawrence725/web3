@@ -1,5 +1,14 @@
 @import "./style.less";
 .order { background-color: @c1;
+    &.light {
+        .result {
+            i, svg, span { color: @cG1; }}
+        .receipt { box-shadow: 0px 5px 10px 0px rgba(55, 84, 170, 0.20);
+            i, svg, .receipt__no, .receipt-item__count, .receipt-total__name--strong { color: @cG1; }}
+        .order__remark { color: @cG1 !important; }
+        .footer {
+            button:not(.important) { border: 1.5px solid @cG1;
+                i, svg { color: @cG1 !important; }}}}
     .header__back, .header__order { display: none !important; }
     .footer { max-width: 512px; gap: 15px; flex-direction: row;
         button { gap: 10px; border: 1.5px solid @c1; background-color: white; box-shadow: 0px 5px 10px rgba(55, 84, 170, 0.2);
@@ -9,4 +18,4 @@
             i, svg { color: @c1 !important; }
             span { color: @cG1 !important; font-size: @fL; }}}
     .main { max-width: 1024px; padding: 90px 20px 200px; margin: 0 auto; gap: 30px; display: flex; flex-wrap: wrap;
-        .order__remark { width: 100%; font-size: @fS; text-align: center; color: rgba(255, 255, 255, 0.6); }}}
+        .order__remark { width: 100%; font-size: @fS; text-align: center; color: white; opacity: 0.6; }}}
